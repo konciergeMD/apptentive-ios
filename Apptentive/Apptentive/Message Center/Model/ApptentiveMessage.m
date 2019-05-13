@@ -63,7 +63,7 @@ static NSString *const SessionIdentifier = @"sessionIdentifier";
 				}
 
 				ApptentiveAttachment *attachment = [[ApptentiveAttachment alloc] initWithJSON:attachmentDict];
-                if ([attachment.contentType isEqualToString:@"image/jpeg"]) {
+                if (![attachment.contentType isEqualToString:@"image/jpeg"]) {
                     _hasCustomAttachment = YES;
                 }
                 
