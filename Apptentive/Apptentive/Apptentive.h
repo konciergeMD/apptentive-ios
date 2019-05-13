@@ -65,7 +65,7 @@ typedef void (^ApptentiveAuthenticationFailureCallback)(ApptentiveAuthentication
 typedef BOOL (^ApptentiveInteractionCallback)(NSString *eventName, NSDictionary * _Nullable customData);
 
 @protocol ApptentiveDelegate
-, ApptentiveStyle;
+, ApptentiveStyle, ApptentiveMessageCenterViewControllerDelegate;
 
 /** Notification sent when Message Center unread messages count changes. */
 extern NSNotificationName const ApptentiveMessageCenterUnreadCountChangedNotification;
@@ -423,7 +423,7 @@ typedef NS_ENUM(NSUInteger, ApptentiveLogLevel) {
  @param viewController The view controller from which to present Message Center.
  @param completion Completion callback.
  */
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController completion:(void (^_Nullable)(BOOL presented))completion;
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate completion:(void (^_Nullable)(BOOL presented))completion;
 
 /**
  Presents Message Center from a given view controller with custom data.
@@ -434,7 +434,7 @@ typedef NS_ENUM(NSUInteger, ApptentiveLogLevel) {
  @param viewController The view controller from which to present Message Center.
  @param customData A dictionary of key/value pairs to be associated with any messages sent via Message Center.
  */
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData;
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate;
 
 /**
  Presents Message Center from a given view controller with custom data.
@@ -446,7 +446,7 @@ typedef NS_ENUM(NSUInteger, ApptentiveLogLevel) {
  @param customData A dictionary of key/value pairs to be associated with any messages sent via Message Center.
  @param completion Completion callback.
  */
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData completion:(void (^_Nullable)(BOOL presented))completion;
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate completion:(void (^_Nullable)(BOOL presented))completion;
 
 /**
  Dismisses Message Center.

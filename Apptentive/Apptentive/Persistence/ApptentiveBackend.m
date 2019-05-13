@@ -483,14 +483,14 @@ NSString *const ATInteractionAppEventLabelExit = @"exit";
 
 #pragma mark Message Center
 
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController completion:(void (^ _Nullable)(BOOL))completion {
-	[self presentMessageCenterFromViewController:viewController withCustomData:nil completion:completion];
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate completion:(void (^ _Nullable)(BOOL))completion {
+    [self presentMessageCenterFromViewController:viewController withCustomData:nil delegate:delegate completion:completion];
 }
 
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData completion:(void (^ _Nullable)(BOOL))completion {
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate completion:(void (^ _Nullable)(BOOL))completion {
 	
 	if (![NSThread isMainThread]) {
-		[self presentMessageCenterFromViewController:viewController withCustomData:customData completion:completion];
+        [self presentMessageCenterFromViewController:viewController withCustomData:customData delegate:delegate completion:completion];
 		return;
 	}
 	
@@ -530,6 +530,11 @@ NSString *const ATInteractionAppEventLabelExit = @"exit";
 				} else {
 					[navigationController presentAnimated:YES completion:nil];
 				}
+                
+                id topVC = navigationController.topViewController;
+                if([topVC isKindOfClass: [ApptentiveMessageCenterViewController class]]) {
+                    ((ApptentiveMessageCenterViewController *)topVC).delegate = delegate;
+                }
 			}
 			
 			if (completion) {
