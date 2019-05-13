@@ -225,7 +225,7 @@
 		01A2D18A1E490A9700C2103A /* ApptentiveCompoundReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2D0721E490A9700C2103A /* ApptentiveCompoundReplyCell.m */; };
 		01A2D18B1E490A9700C2103A /* ApptentiveIndexedCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A2D0731E490A9700C2103A /* ApptentiveIndexedCollectionView.h */; };
 		01A2D18C1E490A9700C2103A /* ApptentiveIndexedCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2D0741E490A9700C2103A /* ApptentiveIndexedCollectionView.m */; };
-		01A2D18D1E490A9700C2103A /* ApptentiveMessageCenterCellProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A2D0751E490A9700C2103A /* ApptentiveMessageCenterCellProtocols.h */; };
+		01A2D18D1E490A9700C2103A /* ApptentiveMessageCenterCellProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A2D0751E490A9700C2103A /* ApptentiveMessageCenterCellProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01A2D18E1E490A9700C2103A /* ApptentiveMessageCenterContextMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A2D0761E490A9700C2103A /* ApptentiveMessageCenterContextMessageCell.h */; };
 		01A2D18F1E490A9700C2103A /* ApptentiveMessageCenterContextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2D0771E490A9700C2103A /* ApptentiveMessageCenterContextMessageCell.m */; };
 		01A2D1901E490A9700C2103A /* ApptentiveMessageCenterGreetingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A2D0781E490A9700C2103A /* ApptentiveMessageCenterGreetingView.h */; };
@@ -1984,6 +1984,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				ar,
 				da,
