@@ -189,6 +189,7 @@ NSString *const ApptentiveSentByUserKey = @"com.apptentive.sentByUser";
 	}];
 }
 
+
 #pragma mark Request Operation Delegate
 
 - (void)processMessageOperationResponse:(ApptentiveRequestOperation *)operation {
@@ -209,7 +210,7 @@ NSString *const ApptentiveSentByUserKey = @"com.apptentive.sentByUser";
 	for (NSDictionary *messageJSON in messageListJSON) {
 		ApptentiveMessage *message = [[ApptentiveMessage alloc] initWithJSON:messageJSON];
 
-		if (message) {
+		if (message && !message.hasCustomAttachment){
 			ApptentiveMessage *previousVersion = [self.messageIdentifierIndex[message.localIdentifier] copy];
 
 			if (previousVersion != nil) {
