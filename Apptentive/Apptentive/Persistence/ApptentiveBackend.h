@@ -91,8 +91,8 @@ extern NSString *const ApptentiveHasSentMessageKey;
 
  @param viewController The view controller from which to present message center
  */
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController completion:(void (^_Nullable)(BOOL presented))completion;
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData completion:(void (^_Nullable)(BOOL presented))completion;
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate completion:(void (^_Nullable)(BOOL presented))completion;
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate completion:(void (^_Nullable)(BOOL presented))completion;
 
 - (void)dismissMessageCenterAnimated:(BOOL)animated completion:(void (^)(void))completion;
 

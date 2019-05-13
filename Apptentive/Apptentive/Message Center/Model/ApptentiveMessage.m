@@ -31,6 +31,7 @@ static NSString *const SessionIdentifier = @"sessionIdentifier";
 @property (readwrite, nonatomic) NSString *localIdentifier;
 @property (readwrite, nonatomic) NSDate *sentDate;
 
+
 @end
 
 
@@ -39,6 +40,7 @@ static NSString *const SessionIdentifier = @"sessionIdentifier";
 + (BOOL)supportsSecureCoding {
 	return YES;
 }
+
 
 - (nullable instancetype)initWithJSON:(NSDictionary *)JSON {
 	self = [super init];
@@ -61,6 +63,10 @@ static NSString *const SessionIdentifier = @"sessionIdentifier";
 				}
 
 				ApptentiveAttachment *attachment = [[ApptentiveAttachment alloc] initWithJSON:attachmentDict];
+                if (![attachment.contentType isEqualToString:@"image/jpeg"]) {
+                    _hasCustomAttachment = YES;
+                }
+                
 				ApptentiveArrayAddObject(attachments, attachment);
 			}
 

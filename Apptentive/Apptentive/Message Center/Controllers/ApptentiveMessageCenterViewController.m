@@ -687,7 +687,7 @@ typedef NS_ENUM(NSInteger, ATMessageCenterState) {
 	[self.attachmentController clear];
 	[self.attachmentController resignFirstResponder];
 	self.attachmentController.active = NO;
-
+    [self.delegate userDidTapSendButton];
 	if ([self shouldShowProfileViewBeforeComposing:NO]) {
 		[Apptentive.shared.backend engage:ATInteractionMessageCenterEventLabelProfileOpen
 						  fromInteraction:self.viewModel.interaction

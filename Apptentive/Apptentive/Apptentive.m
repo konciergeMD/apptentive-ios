@@ -674,25 +674,25 @@ static Apptentive *_nullInstance;
 }
 
 - (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController {
-	[self presentMessageCenterFromViewController:viewController completion:nil];
+    [self presentMessageCenterFromViewController:viewController delegate:nil completion:nil];
 }
 
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController completion:(void (^_Nullable)(BOOL presented))completion {
-	[self.backend presentMessageCenterFromViewController:viewController completion:completion];
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate completion:(void (^_Nullable)(BOOL presented))completion {
+    [self.backend presentMessageCenterFromViewController:viewController delegate:delegate completion:completion];
 }
 
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData {
-	[self presentMessageCenterFromViewController:viewController withCustomData:customData completion:nil];
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate {
+    [self presentMessageCenterFromViewController:viewController withCustomData:customData delegate:delegate completion:nil];
 }
 
-- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData completion:(void (^ _Nullable)(BOOL))completion {
+- (void)presentMessageCenterFromViewController:(nullable UIViewController *)viewController withCustomData:(nullable NSDictionary *)customData delegate:(nullable id<ApptentiveMessageCenterViewControllerDelegate>)delegate completion:(void (^ _Nullable)(BOOL))completion {
 	NSMutableDictionary *allowedCustomMessageData = [NSMutableDictionary dictionary];
 
 	for (NSString *key in [customData allKeys]) {
 		[self addCustomData:[customData objectForKey:key] withKey:key toCustomDataDictionary:allowedCustomMessageData];
 	}
 
-	[self.backend presentMessageCenterFromViewController:viewController withCustomData:allowedCustomMessageData completion:completion];
+    [self.backend presentMessageCenterFromViewController:viewController withCustomData:allowedCustomMessageData delegate: delegate completion:completion];
 }
 
 - (void)dismissMessageCenterAnimated:(BOOL)animated completion:(nullable void (^)(void))completion {
