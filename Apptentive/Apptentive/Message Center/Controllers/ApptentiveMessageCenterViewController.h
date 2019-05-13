@@ -8,7 +8,7 @@
 
 #import "ApptentiveMessageCenterViewModel.h"
 #import <UIKit/UIKit.h>
-
+#import "ApptentiveMessageCenterCellProtocols.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @class ApptentiveMessageCenterInteraction;
@@ -27,8 +27,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@class Apptentive;
-@protocol ApptentiveMessageCenterViewControllerDelegate <NSObject>
-- (void)userDidTapSendButton;
-@end
 NS_ASSUME_NONNULL_END

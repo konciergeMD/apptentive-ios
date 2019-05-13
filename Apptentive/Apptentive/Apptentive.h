@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
-
+#import "ApptentiveMessageCenterCellProtocols.h"
 NS_ASSUME_NONNULL_BEGIN
 
 //! Project version number for Apptentive.
@@ -65,7 +65,7 @@ typedef void (^ApptentiveAuthenticationFailureCallback)(ApptentiveAuthentication
 typedef BOOL (^ApptentiveInteractionCallback)(NSString *eventName, NSDictionary * _Nullable customData);
 
 @protocol ApptentiveDelegate
-, ApptentiveStyle, ApptentiveMessageCenterViewControllerDelegate;
+, ApptentiveStyle;
 
 /** Notification sent when Message Center unread messages count changes. */
 extern NSNotificationName const ApptentiveMessageCenterUnreadCountChangedNotification;
