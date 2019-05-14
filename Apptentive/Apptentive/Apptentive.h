@@ -636,7 +636,7 @@ typedef NS_ENUM(NSUInteger, ApptentiveLogLevel) {
  @param fileData The contents of the file as data.
  @param mimeType The MIME type of the file data.
  */
-- (void)sendAttachmentFile:(NSData *)fileData withMimeType:(NSString *)mimeType NS_SWIFT_NAME(sendAttachment(_:mimeType:));
+- (void)sendAttachmentFile:(NSData *)fileData withMimeType:(NSString *)mimeType withName:(nullable NSString *)name NS_SWIFT_NAME(sendAttachment(_:mimeType:name:));
 
 ///---------------------------------------
 /// @name Add Custom Device or Person Data

@@ -281,7 +281,7 @@ static Apptentive *_nullInstance;
 	}];
 }
 
-- (void)sendAttachmentFile:(NSData *)fileData withMimeType:(NSString *)mimeType {
+- (void)sendAttachmentFile:(NSData *)fileData withMimeType:(NSString *)mimeType withName: (nullable NSString *)name {
 	[self.operationQueue dispatchAsync:^{
 	  if (self.backend.conversationManager.activeConversation == nil) {
 		  ApptentiveLogError(ApptentiveLogTagMessages, @"Attempting to send message with no active conversation.");
@@ -303,7 +303,7 @@ static Apptentive *_nullInstance;
 		  return;
 	  }
 
-	  ApptentiveAttachment *attachment = [[ApptentiveAttachment alloc] initWithData:fileData contentType:mimeType name:nil attachmentDirectoryPath:self.backend.conversationManager.messageManager.attachmentDirectoryPath];
+	  ApptentiveAttachment *attachment = [[ApptentiveAttachment alloc] initWithData:fileData contentType:mimeType name:name attachmentDirectoryPath:self.backend.conversationManager.messageManager.attachmentDirectoryPath];
 	  ApptentiveAssertNotNil(attachment, @"Attachment is nil");
 
 	  if (attachment != nil) {
