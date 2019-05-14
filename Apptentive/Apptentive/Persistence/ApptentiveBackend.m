@@ -530,13 +530,10 @@ NSString *const ATInteractionAppEventLabelExit = @"exit";
 				} else {
 					[navigationController presentAnimated:YES completion:nil];
 				}
-                
-                id topVC = navigationController.topViewController;
-                if([topVC isKindOfClass: [ApptentiveMessageCenterViewController class]]) {
-                    ((ApptentiveMessageCenterViewController *)topVC).delegate = delegate;
-                }
 			}
-			
+            if (self.presentedMessageCenterViewController != nil && [self.presentedMessageCenterViewController isKindOfClass:[ApptentiveMessageCenterViewController class]]) {
+                ((ApptentiveMessageCenterViewController *)self.presentedMessageCenterViewController).delegate = delegate;
+            }
 			if (completion) {
 				completion(didShowMessageCenter);
 			}
