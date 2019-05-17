@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
-#import "ApptentiveMessageCenterCellProtocols.h"
 NS_ASSUME_NONNULL_BEGIN
 
 //! Project version number for Apptentive.
@@ -67,6 +66,9 @@ typedef BOOL (^ApptentiveInteractionCallback)(NSString *eventName, NSDictionary 
 @protocol ApptentiveDelegate
 , ApptentiveStyle;
 
+@protocol ApptentiveMessageCenterViewControllerDelegate <NSObject>
+- (void)userDidTapSendButton;
+@end
 /** Notification sent when Message Center unread messages count changes. */
 extern NSNotificationName const ApptentiveMessageCenterUnreadCountChangedNotification;
 
@@ -809,6 +811,8 @@ typedef NS_ENUM(NSUInteger, ApptentiveLogLevel) {
 
 @protocol ApptentiveDelegate <NSObject>
 @optional
+
+
 
 /**
  Returns a view controller from which to present the an interaction.
