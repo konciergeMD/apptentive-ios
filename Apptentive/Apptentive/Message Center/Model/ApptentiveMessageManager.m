@@ -210,7 +210,7 @@ NSString *const ApptentiveSentByUserKey = @"com.apptentive.sentByUser";
 	for (NSDictionary *messageJSON in messageListJSON) {
 		ApptentiveMessage *message = [[ApptentiveMessage alloc] initWithJSON:messageJSON];
 
-		if (message && !message.hasCustomAttachment){
+		if (message){
 			ApptentiveMessage *previousVersion = [self.messageIdentifierIndex[message.localIdentifier] copy];
 
 			if (previousVersion != nil) {

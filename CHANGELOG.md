@@ -1,3 +1,27 @@
+# 2019-09-05 - v5.2.5
+
+#### Bugs Fixed
+
+* Remove upgrade dialogs.
+
+> This decision was driven by a combination of extremely low adoption, Apple's imminent enforcement of UIWebView's deprecation (where updates that use this API can no longer be submitted), and WKWebView not working with Storyboards on iOS 9 and 10. Customers who need this functionality are encouraged to use the Notes feature instead. 
+
+#### Improvements
+
+* Support Dark Mode in Surveys and Message Center.
+
+# 2019-05-17 - v5.2.4
+
+#### Bugs Fixed
+
+* Work around an iOS bug where survey text fields could disappear.
+* Fix an issue where hidden messages (send with `sendAttachment()`) were visible in Message Center
+
+#### Improvements
+
+* Explicitly set the protection level on Message Center attachments.
+* Also ask for name when Message Center requires an email address.
+
 # 2018-11-27 - v5.2.3
 
 #### Bugs Fixed
